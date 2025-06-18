@@ -1,0 +1,18 @@
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".vim_runtime"]
+	path = .vim_runtime
+	url = https://github.com/amix/vimrc.git
+[submodule "tmux-sessionizer"]
+	path = tmux-sessionizer
+	url = https://github.com/ThePrimeagen/tmux-sessionizer.git
+[submodule "darkmatter-grub2-theme"]
+	path = darkmatter-grub2-theme
+	url = https://github.com/VandalByte/darkmatter-grub2-theme/
+[submodule "cbonsai"]
+	path = cbonsai
+	url = https://gitlab.com/jallbrit/cbonsai
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/JoachimTislov/neovim-setup

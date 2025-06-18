@@ -1,0 +1,3 @@
+kitty_mod alt
+font_size 14.0
+map kitty_mod+plus change_font_size all +2.0
