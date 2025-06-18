@@ -35,15 +35,17 @@
 - Hyprland - window manager
 - [mynav](https://github.com/GianlucaP106/mynav) - Workspace manager
 
-# Thanks to 
+# Thanks to..
 
-- [MrVivekRajan's dotfiles](https://github.com/MrVivekRajan/Hypr-Dots?tab=readme-ov-file)
-- [shreyas-sha3's dotfiles](https://github.com/shreyas-sha3/niri-dots/blob/main/README.md)
-- [hayyaoe - Zenties (Hyprland setup)](https://github.com/hayyaoe/zenities)
-- [harilvfs's fastfetch config](https://github.com/harilvfs/fastfetch)
-- [VandalByte's darkmatter theme for GRUB](https://github.com/VandalByte/darkmatter-grub2-theme/)    
-- Themes
-    - [Darkmatter grub](https://github.com/VandalByte/darkmatter-grub2-theme)
-    - Catppuccin themes
+- dotfiles
+    - [mathiasbynens](https://github.com/mathiasbynens/dotfiles)
+    - [MrVivekRajan](https://github.com/MrVivekRajan/Hypr-Dots?tab=readme-ov-file)
+    - [shreyas-sha3](https://github.com/shreyas-sha3/niri-dots/blob/main/README.md)
+- configurations
+    - [hayyaoe - Zenties (Hyprland setup)](https://github.com/hayyaoe/zenities)
+    - [harilvfs's fastfetch config](https://github.com/harilvfs/fastfetch)
+- themes
+    - [VandalByte's darkmatter theme for GRUB](https://github.com/VandalByte/darkmatter-grub2-theme)
+    - Catppuccin
         - [cava](https://github.com/catppuccin/cava?tab=readme-ov-file)
         - [ncspot](https://github.com/catppuccin/ncspot)
