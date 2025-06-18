@@ -12,9 +12,9 @@ sudo pacman -S --noconfirm --needed unzip make gcc neovim vim npm go
 
 # Hyprland desktop environment 
 # Is here to supersede the archinstall later..
-sudo pacman -S --noconfirm --needed hyprland kitty wofi qt5-wayland qtf6-wayland dunst dolphin xdg-deskstop-portal-hyprland 
+sudo pacman -S --noconfirm --needed hyprland kitty wofi qt5-wayland qtf6-wayland dunst dolphin xdg-deskstop-portal-hyprland sddm
 
-sudo pacman -S --noconfirm --needed base-devel grub efibootmgr ttf-firacode-nerd fastfetch ly tmux firefox discord cava zsh thefuck github-cli gimp ncspot genact hollywood
+sudo pacman -S --noconfirm --needed base-devel grub efibootmgr ttf-firacode-nerd fastfetch ly tmux firefox discord cava zsh thefuck github-cli gimp ncspot genact hollywood btop docker
 
 # Install grub - bootloader
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
