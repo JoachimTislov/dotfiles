@@ -10,7 +10,11 @@ sudo pacman -S --noconfirm --needed file yazi ffmpeg 7zip jq poppler fd ripgrep 
 # Install Neovim and related packages
 sudo pacman -S --noconfirm --needed unzip make gcc neovim vim npm go
 
-sudo pacman -S --noconfirm --needed base-devel grub efibootmgr ttf-firacode-nerd fastfetch ly tmux firefox kitty discord cava zsh thefuck github-cli gimp ncspot genact hollywood
+# Hyprland desktop environment 
+# Is here to supersede the archinstall later..
+sudo pacman -S --noconfirm --needed hyprland kitty wofi qt5-wayland qtf6-wayland dunst dolphin xdg-deskstop-portal-hyprland 
+
+sudo pacman -S --noconfirm --needed base-devel grub efibootmgr ttf-firacode-nerd fastfetch ly tmux firefox discord cava zsh thefuck github-cli gimp ncspot genact hollywood
 
 # Install grub - bootloader
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
@@ -32,8 +36,10 @@ makepkg -D yay -si --noconfirm --needed
 rm -rf yay
 
 # Create cbonsai binary
+git clone https://gitlab.com/jallbrit/cbonsai
 cd cbonsai
 make install PREFIX=/usr
+cd .. && rm -rf cbonsai
 
 yay -S --noconfirm spotify matrix-git asciiquarium-transparent-git resvg
 
