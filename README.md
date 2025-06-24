@@ -1,6 +1,6 @@
 # Package overview 
 
-- Nerd fonts 
+-https://github.com/amix/vimrc?tab=readme-ov-file Nerd fonts 
 - Window managers: [Hyprland](https://wiki.hypr.land/), i3
 - Web browsers: firefox, brave
 - Wolfi - app launcher, [hyprland file managers](https://wiki.hypr.land/Useful-Utilities/File-Managers/)
@@ -49,3 +49,8 @@
     - Catppuccin
         - [cava](https://github.com/catppuccin/cava?tab=readme-ov-file)
         - [ncspot](https://github.com/catppuccin/ncspot)
+
+# TODOs
+
+- Study [vimrc](https://github.com/amix/vimrc/blob/master/vimrcs/plugins_config.vim)
+- Look into [tmux-sessionizer](https://github.com/ThePrimeagen/tmux-sessionizer)

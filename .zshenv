@@ -1,4 +1,4 @@
 export EDITOR=nvim
 export VISUAL=nvim
-export ZSH="$HOME/dotfiles/oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
