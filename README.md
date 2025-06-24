@@ -1,6 +1,6 @@
 # Package overview 
 
--https://github.com/amix/vimrc?tab=readme-ov-file Nerd fonts 
+- Nerd fonts 
 - Window managers: [Hyprland](https://wiki.hypr.land/), i3
 - Web browsers: firefox, brave
 - Wolfi - app launcher, [hyprland file managers](https://wiki.hypr.land/Useful-Utilities/File-Managers/)
