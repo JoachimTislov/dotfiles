@@ -43,7 +43,7 @@
 
 # Audio capturing method. Possible methods are: 'fifo', 'portaudio', 'pipewire', 'alsa', 'pulse', 'sndio', 'oss', 'jack' or 'shmem'
 
-; method = pulse
+; method = pipewire
 ; source = auto
 
 # The options 'sample_rate', 'sample_bits', 'channels' and 'autoconnect' can be configured for some input methods:

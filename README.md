@@ -6,23 +6,29 @@ Use at your own risk!
 
 # Packages overview 
 
-[Click here](./packages-description.md)
+[View here](./packages-description.md)
 
 # Thanks to..
 
-- [Mylinuxforwork](https://github.com/mylinuxforwork)
 - dotfiles
     - [mathiasbynens](https://github.com/mathiasbynens/dotfiles)
-    - [MrVivekRajan](https://github.com/MrVivekRajan/Hypr-Dots?tab=readme-ov-file)
-    - [shreyas-sha3](https://github.com/shreyas-sha3/niri-dots/blob/main/README.md)
+    - [MrVivekRajan](https://github.com/MrVivekRajan/Hypr-Dots)
+    - [shreyas-sha3](https://github.com/shreyas-sha3/niri-dotsd)
 - configurations
     - [hayyaoe - Zenties (Hyprland setup)](https://github.com/hayyaoe/zenities)
     - [LierB - fastfetch](https://github.com/LierB/fastfetch)
+    - [Mylinuxforwork](https://github.com/mylinuxforwork)
+    - [amix - vimrc](https://github.com/amix/vimrc)
 - themes
     - [VandalByte's darkmatter theme for GRUB](https://github.com/VandalByte/darkmatter-grub2-theme)
-    - Catppuccin
-        - [cava](https://github.com/catppuccin/cava?tab=readme-ov-file)
+    - [Catppuccin](https://github.com/catppuccin)
+        - [cava](https://github.com/catppuccin/cava)
         - [ncspot](https://github.com/catppuccin/ncspot)
+    - [Nordtheme](https://www.nordtheme.com/)
+- wallpapers
+    - [dharmx - walls](https://github.com/dharmx/walls)
+    - [leroiduflow - Wallsync](https://github.com/leroiduflow/WallSync)
+- [Bash cheat sheet](https://github.com/RehanSaeed/Bash-Cheat-Sheet)
 
 ... and many more!
 
