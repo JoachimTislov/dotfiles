@@ -19,9 +19,9 @@ else
 fi
 
 echo "Input path to folder with config and creds files"
-read $dir
+read dir
 
 archinstall --config "${dir}/user_configuration.json" --creds "${dir}/user_credentials.json"
 
-sh "${wget https://github.com/JoachimTislov/tree/blob/main/scripts/web-install.sh}"
+wget https://github.com/JoachimTislov/dotfiles/tree/main/scripts/web-install.sh | sh
 
