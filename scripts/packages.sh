@@ -1,5 +1,5 @@
-#!/bin/bash
-  
+#!/usr/bin/env bash
+
 packages=(
   ### yazi ###
   yazi
@@ -47,8 +47,8 @@ packages=(
   htop
   ### misc ###
   stow
-  git
   sed
+  brightnessctl
   wget
   man-pages
   base-devel

@@ -1,2 +1,12 @@
-wget https://github.com/JoachimTislov/dotfiles/scripts/packages.sh https://github.com/JoachimTislov/dotfiles/scripts/setup.sh
+#!/usr/bin/env bash
 
+folder_loc=$HOME/dotfiles
+
+echo "Installing git and cloning dotfiles repository"
+sudo pacman -S --noconfirm git
+git clone https://github.com/JoachimTislov/dotfiles $folder_loc
+cd $folder_loc
+
+echo "Setting desktop configurations (hyprland)"
+# setup.sh should only be called inside the dotfiles directory
+sh setup.sh
