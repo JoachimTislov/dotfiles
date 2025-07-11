@@ -5,3 +5,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/JoachimTislov/ohmyzsh.git
+[submodule "themes/sddm-astronaut-theme"]
+	path = themes/sddm-astronaut-theme
+	url = https://github.com/Keyitdev/sddm-astronaut-theme.git

@@ -24,6 +24,7 @@ Use at your own risk!
     - [Catppuccin](https://github.com/catppuccin)
         - [cava](https://github.com/catppuccin/cava)
         - [ncspot](https://github.com/catppuccin/ncspot)
+    - [Keyitdev - sddm](https://github.com/Keyitdev/sddm-astronaut-theme)
     - [Nordtheme](https://www.nordtheme.com/)
 - wallpapers
     - [dharmx - walls](https://github.com/dharmx/walls)

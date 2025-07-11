@@ -34,6 +34,9 @@ packages=(
   dolphin
   xdg-desktop-portal-hyprland
   sddm
+  qt6-svg 
+  qt6-virtualkeyboard
+  qt6-multimedia-ffmpeg
   uwsm
   cliphist
   ### art ###
