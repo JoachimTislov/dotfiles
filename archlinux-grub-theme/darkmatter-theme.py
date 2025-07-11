@@ -98,24 +98,15 @@ def install():
     # debian | arch
     if os.path.exists("/boot/grub/"):
         GRUB_THEMES_DIR = "/boot/grub/themes/"
-        GRUB_UPDATE_CMD = "grub-mkconfig -o /boot/grub/grub.cfg"
+        GRUB_UPDATE_CMD = "sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
         if not os.path.exists(GRUB_THEMES_DIR):
             os.mkdir(GRUB_THEMES_DIR)
-
-    # fedora | redhat
-    elif os.path.exists("/boot/grub2/"):
-        GRUB_THEMES_DIR = "/boot/grub2/themes/"
-        GRUB_UPDATE_CMD = "grub2-mkconfig -o /boot/grub2/grub.cfg"
-
-        if not os.path.exists(GRUB_THEMES_DIR):
-            os.mkdir(GRUB_THEMES_DIR)
-
     else:
         print(f"\n{R}(!){C} Couldn't find the GRUB directory. Exiting the script ...")
         exit()
 
-    THEME_DIR = f"{GRUB_THEMES_DIR}/{THEME}"
+    THEME_DIR = f"{GRUB_THEMES_DIR}{THEME}"
 
     if os.path.exists(THEME_DIR):
         print("\n")
@@ -130,7 +121,7 @@ def install():
     print("    done.\n")
 
     print(f"\n{G}($){C} Editing the GRUB file ...")
-    THEME_PATH = f"{THEME_DIR}theme.txt"
+    THEME_PATH = f"{THEME_DIR}/theme.txt"
     change_grub_theme(THEME_PATH)
     print("    done.\n")
 

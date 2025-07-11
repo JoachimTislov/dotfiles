@@ -62,6 +62,7 @@ packages=(
   gimp
   ncspot
   docker
+  os-prober
 )
 
 user_packages=(

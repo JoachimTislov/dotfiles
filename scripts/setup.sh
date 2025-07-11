@@ -31,9 +31,3 @@ cd .. && rm -rf cbonsai
 echo "Installing user packages"
 yay -S --noconfirm ${user_packages[@]} 
 
-# Install oh my zsh and plugins 
-sh -c "$(wget -O- https://install.ohmyz.sh/)"
-# TODO: Find a way of installing ohmyzsh with following plugins 
-# git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH/custom/plugins/fast-syntax-highlighting
-# git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH/custom/plugins/autosuggestions
-
