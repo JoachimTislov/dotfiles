@@ -23,5 +23,3 @@ read dir
 
 archinstall --config "${dir}/user_configuration.json" --creds "${dir}/user_credentials.json"
 
-wget https://github.com/JoachimTislov/dotfiles/tree/main/scripts/web-install.sh | sh
-

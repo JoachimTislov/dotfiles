@@ -35,12 +35,10 @@ packages=(
   xdg-desktop-portal-hyprland
   sddm
   uwsm
-  wlogout
   cliphist
   ### art ###
   fastfetch
   genact
-  hollywood
   cava
   ### system monitor ###
   btop
@@ -69,6 +67,8 @@ packages=(
 user_packages=(
   spotify
   matrix-git
+  wlogout
+  hollywood
   asciiquarium-transparent-git
   resvg
 )

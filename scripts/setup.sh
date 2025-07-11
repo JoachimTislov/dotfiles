@@ -1,24 +1,19 @@
 #!/usr/bin/env bash
+set -e
 
-source packages.sh
+source ./packages.sh
 
-sudo pacman -Syu --noconfirm --needed ${pakages[@]}
+cd $HOME/dotfiles 
+
+sudo pacman -Syu --noconfirm --needed ${packages[@]}
 
 echo "Running stow"
 stow .
 
-echo "Installing grub - bootloader"
-sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-
 echo "Applying darkmatter theme to grub"
-cd darkmatter-grub2-theme
+cd archlinux-grub-theme
 sudo python3 darkmatter-theme.py -i
 cd $HOME
-
-# Install oh my zsh and plugins 
-sh -c "$(wget -O- https://install.ohmyz.sh/)"
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH/custom/plugins/fast-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH/custom/plugins/autosuggestions
 
 cp -r $HOME/dotfiles/sddm /etc/sddm.conf.d/
 
@@ -35,4 +30,10 @@ cd .. && rm -rf cbonsai
 
 echo "Installing user packages"
 yay -S --noconfirm ${user_packages[@]} 
+
+# Install oh my zsh and plugins 
+sh -c "$(wget -O- https://install.ohmyz.sh/)"
+# TODO: Find a way of installing ohmyzsh with following plugins 
+# git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH/custom/plugins/fast-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH/custom/plugins/autosuggestions
 
