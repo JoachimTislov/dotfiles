@@ -43,7 +43,10 @@ packages=(
   qt6-virtualkeyboard
   qt6-multimedia-ffmpeg
   uwsm
+  libnewt
   cliphist
+  gtk4
+  gtk3
   ### art ###
   fastfetch
   genact
@@ -54,10 +57,10 @@ packages=(
   ### misc ###
   stow
   less
-  sed
   eza
   brightnessctl
   wget
+  lsb-release
   man-pages
   base-devel
   grub
@@ -72,10 +75,12 @@ packages=(
   gimp
   ncspot
   docker
+  spotify-launcher
+  bluez-utils
 )
 
 user_packages=(
-  spotify
+  waypaper
   matrix-git
   wlogout
   hollywood
@@ -87,9 +92,15 @@ if lsblk -f | grep -e Windows -e ntfs > /dev/null; then
   packages+=(os-prober)
 fi
 
+# Nvidia gpu configuration - https://wiki.hypr.land/Nvidia/
 if lspci | grep -i nvidia > /dev/null; then
   packages+=(
     nvidia-utils 
+    nvidia
     egl-wayland
   )
+  # Following isn't done for you ...
+  echo "options nvidia_drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
+  echo "[spotify]
+extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]" | sudo tee ~/.config/spotify-launcher.conf
 fi

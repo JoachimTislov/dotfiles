@@ -25,7 +25,7 @@ plugins=(
   git
   sudo
   web-search
-  autosuggestions
+  zsh-autosuggestions
   fast-syntax-highlighting
   archlinux
   copyfile
@@ -58,6 +58,7 @@ alias nvi="nvim"
 alias vim="nvim"
 alias sea="asciiquarium" 
 alias spot="ncspot" 
+alias spotify="spotify-launcher"
 alias bonsai="cbonsai -l -i" 
 alias matrix="cmatrix -Ba -u 3 -C cyan" 
 alias act="genact -i 3 -s 2" 

@@ -4,10 +4,7 @@ folder_loc=$HOME/dotfiles
 
 echo "Installing git and cloning dotfiles repository"
 sudo pacman -S --noconfirm git
-git clone https://github.com/JoachimTislov/dotfiles $folder_loc
-cd $folder_loc
-git submodule update --init --remote --recursive
+git clone --recurse-submodules https://github.com/JoachimTislov/dotfiles $folder_loc
 
 echo "Setting desktop configurations (hyprland)"
-# setup.sh should only be called inside the dotfiles directory
-sh setup.sh
+sh $folder_loc/scripts/setup.sh
