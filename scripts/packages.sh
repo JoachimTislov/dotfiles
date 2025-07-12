@@ -28,6 +28,11 @@ packages=(
   hypridle
   ttf-firacode-nerd
   kitty
+  waybar
+  mako
+  pipewire
+  wireplumber
+  polkit-kde-agent
   rofi
   qt5-wayland
   qt6-wayland
@@ -48,7 +53,9 @@ packages=(
   htop
   ### misc ###
   stow
+  less
   sed
+  eza
   brightnessctl
   wget
   man-pages
@@ -65,7 +72,6 @@ packages=(
   gimp
   ncspot
   docker
-  os-prober
 )
 
 user_packages=(
@@ -76,3 +82,14 @@ user_packages=(
   asciiquarium-transparent-git
   resvg
 )
+
+if lsblk -f | grep -e Windows -e ntfs > /dev/null; then
+  packages+=(os-prober)
+fi
+
+if lspci | grep -i nvidia > /dev/null; then
+  packages+=(
+    nvidia-utils 
+    egl-wayland
+  )
+fi

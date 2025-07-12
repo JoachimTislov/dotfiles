@@ -33,7 +33,18 @@ Use at your own risk!
 
 ... and many more!
 
+## Useful resources
+
+List of resources I found helpful for understanding Linux and configuring [Arch linux](https://archlinux.org/)
+
+- Archlinux [wiki](https://wiki.archlinux.org/title/Main_page) and [forums](https://bbs.archlinux.org/)
+- [Slackware pkgblog - coreutils](https://ratfactor.com/slackware/pkgblog/coreutils)
+- Subreddits
+    - [Archlinux](https://www.reddit.com/r/archlinux/)
+    - [Unixporn](https://www.reddit.com/r/unixporn/)
+    - [Linux](https://www.reddit.com/r/linux/)
+
 ## TODOs
 
-- Study [vimrc](https://github.com/amix/vimrc/blob/master/vimrcs/plugins_config.vim)
 - Look into [tmux-sessionizer](https://github.com/ThePrimeagen/tmux-sessionizer)
+- Rework .config/wlogout/layout and its corresponding script .config/hypr/scripts/power.sh

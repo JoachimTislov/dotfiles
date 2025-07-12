@@ -20,7 +20,7 @@
 - [Eza](https://github.com/eza-community/eza) - modern replacement for `ls`
 - [redshift](<https://github.com/jonls/redshift>) adjust screen light given the time..
 - fzf - terminal search
-- SDDM - display manager
+- sddm - display manager
 - Stow - Symlink farm manager
 - Systeminfo displayers: fastfetch, (nc)neofetch 
 - Howdy - 2D video authentication.

@@ -46,6 +46,10 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+alias c="clear"
+alias ls="eza -a --icons=always"
+alias shutdown="systemctl poweroff"
+
 alias n="nvim"
 alias v="nvim"
 alias nv="nvim"
@@ -54,7 +58,7 @@ alias nvi="nvim"
 alias vim="nvim"
 alias sea="asciiquarium" 
 alias spot="ncspot" 
-alias tree="cbonsai -l -i" 
+alias bonsai="cbonsai -l -i" 
 alias matrix="cmatrix -Ba -u 3 -C cyan" 
 alias act="genact -i 3 -s 2" 
 alias vim-update="sh $HOME/dotfiles/.vim_runtime/install_awesome_vimrc.sh"
