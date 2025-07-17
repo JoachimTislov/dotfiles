@@ -1,41 +1,46 @@
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# Folder locaction - $ZSH/themes/
-ZSH_THEME="robbyrussell"
+# Silence error of no entries when using glob (*)
+# Not sure if this should be set globally ...
+setopt nullglob
 
-CASE_SENSITIVE="true" 
-# HYPHEN_INSENSITIVE="true" # Case-sensitive completion must be off. _ and - will be interchangeable.
+# Load modular configuration
+for f in $HOME/.config/zshrc/*; do
+  [ -f $f ] && source $f
+done
 
-zstyle ':omz:update' mode auto # disbaled or reminder
-zstyle ':omz:update' frequency 7
+function ff() {
+  width=$(hyprctl activewindow -j | jq '.size[0]')
+  # height=$(hyprctl activewindow -j | jq '.size[1]')
 
-DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
+  if [ "$width" -lt 800 ]; then
+    fontsize=8
+  elif [ "$width" -lt 1200 ]; then
+    fontsize=10
+  elif [ "$width" -lt 1400 ]; then
+    fontsize=12
+  elif [ "$width" -lt 1600 ]; then
+    fontsize=14
+  else
+    fontsize=15
+  fi
 
-# This makes repository status check for large repositories much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true" 
+  kitty @ set-font-size "$fontsize"
+  fastfetch
+}
 
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-HIST_STAMPS="dd-mm-yyyy"
-setopt appendhistory
+ff # responsive fastfetch
 
-plugins=(
-  git
-  sudo
-  web-search
-  zsh-autosuggestions
-  fast-syntax-highlighting
-  archlinux
-  copyfile
-  copybuffer
-  dirhistory
-)
+# Activate vi
+bindkey -v
+export KEYTIMEOUT=1
 
-source $ZSH/oh-my-zsh.sh
+# TODO: this ... related to *TODO* in kitty.conf
+# https://github.com/BrodieRobertson/dotfiles/blob/master/.zshrc
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 
-eval "$(thefuck --alias)" 
+eval "$(thefuck --alias)"
 
 # Wrapper for yazi to change directory on exit 
 function y() {
@@ -46,31 +51,76 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-alias c="clear"
-alias ls="eza -a --icons=always"
-alias shutdown="systemctl poweroff"
+function cdls() {
+  chdir $@
+  ls --group-directories-first
+}
 
-alias n="nvim"
-alias v="nvim"
-alias nv="nvim"
-alias vi="nvim"
-alias nvi="nvim"
-alias vim="nvim"
-alias sea="asciiquarium" 
-alias spot="ncspot" 
-alias spotify="spotify-launcher"
-alias bonsai="cbonsai -l -i" 
-alias matrix="cmatrix -Ba -u 3 -C cyan" 
-alias act="genact -i 3 -s 2" 
-alias vim-update="sh $HOME/dotfiles/.vim_runtime/install_awesome_vimrc.sh"
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+# Search & enter with editor
+se() {
+  local dir="${1:-.}"
+  local file=$(find "$dir" -type f | fzf)
+  if [ -n "$file" ]; then 
+    $EDITOR "$file";
+    [ "$(dirname $file)" != $(pwd) ] && cd $(dirname "$file")
+  fi
+}
 
-# Github aliases
-alias gs="git status" # Overwrites Ghostscript
-alias gcm="git checkout main"
-alias ga="git add ."
-alias gr="git restore ."
-alias grs="git restore . --staged"
-alias gl="git log"
+pkg() {
+  if local info=$(pacman -Qi $@) && [ -n "$info" ]; then
+    echo "$info" | less
+  fi
+}
+# alias pkglist="pacman -Qi | grep -E 'Name|Description' | less"
+pkglist() {
+  pacman -Qi | awk '
+    /^Name/ {
+      print $3
+    }
+    /^Description/ {
+      sub(/^Description[ ]*:[ ]*/, "")
+      print
+      print ""
+    }
+  ' | less
+}
 
-# fastfetch
+### Maintaince ###
+# TODO: look at these ...
+# https://wiki.archlinux.org/title/Pacman/Tips_and_tricks
+# https://wiki.archlinux.org/title/System_maintenance
+function clean() {
+  msg() {
+    echo "There are $1 orphaned packages"
+  }
+  local orphans=$(pacman -Qdtq);
+  if [ -z "$orphans" ]; then
+    msg zero
+  else
+    msg $(echo $orphans | wc -w)
+  fi
+
+  # Debate on using
+  # find . -name . -o -prune -exec rm -rf -- {} +
+  # Src: https://unix.stackexchange.com/questions/77127/rm-rf-all-files-and-all-hidden-files-without-error
+  cache="$HOME/.cache"
+  trash="$HOME/.local/share/Trash"
+  garbage=(
+    $cache
+    $trash
+  )
+  echo -e "$(vol $cache)\n$(vol $trash)"
+  if ~/dotfiles/scripts/confirm.sh "Do you want to cleanup?"; then 
+    for x in garbage; do
+      rm -rf "$x"
+      mkdir "$x"
+    done
+    [ -n "$orphans" ] && sudo pacman -Rscu --noconfirm $orphans
+    echo "Done."
+  fi
+}
+
+function vol() { 
+  du -sh $@ 
+}
+

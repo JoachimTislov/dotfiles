@@ -1,0 +1,144 @@
+@import "catppuccin-mocha.css";
+
+* {
+  font-family: "Adwaita";
+  font-weight: bold;
+}
+
+/* Hide the main bar */
+window#waybar {
+    background-color: transparent;
+}
+
+.modules-left, .modules-right {
+  background-color: shade(@base, 1.2);
+  border: 3px solid alpha(@blue, 0.8);
+  border-radius: 2px;
+  padding-left: 10px;
+  opacity: 0.9;
+}
+
+#workspaces button {
+  margin: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  background-color: @lavender;
+  color: @mantle;
+  opacity: 0.7;
+}
+
+tooltip {
+    border-radius: 16px;
+    background-color: @backgroundlight;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: @text2;
+}
+
+#idle_inhibitor {
+    margin-right: 15px;
+    font-weight: bold;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #dc2f2f;
+}
+
+#custom-appmenuicon {
+    font-size: 30px;
+    color: @blue;
+    margin: 0px 10px 0px 4px;
+    padding-right: 10px;
+}
+
+#clock {
+  background-color: @maroon;
+  color: @mantle;
+  font-size: 15px;
+  border-radius: 4px;
+  margin: 8px 15px 8px 15px;
+  padding: 0px 7px 0px 5px;
+}
+
+#pulseaudio, #network, #bluetooth {
+  font-size: 12px;
+  padding: 0px 10px 0px 10px;
+  margin: 10px 5px 10px 0px;
+}
+
+#pulseaudio {
+  background-color: @peach;
+  color: @mantle;
+  border-radius: 10px;
+}
+
+#network {
+  background-color: @sapphire;
+  color: @mantle;
+  border-radius: 15px; 
+}
+
+#bluetooth {
+  color: @mantle;
+  border-radius: 10px;
+}
+
+#bluetooth.connected {
+  background-color: @green;
+}
+
+#bluetooth.off {
+  background-color: @red;
+}
+
+#bluetooth.on, #bluetooth.disconnected {
+  background-color: @yellow;
+}
+
+#battery {
+    font-size: 14px;
+    border-radius: 15px;
+    margin: 10px 15px 10px 0px;
+}
+
+#battery.charging, #battery.plugged {
+    color: @text;
+}
+
+@keyframes blink {
+    to {
+        background-color: @backgroundlight;
+        color: @text;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray {
+    margin:0px 10px 0px 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}

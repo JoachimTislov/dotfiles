@@ -1,8 +1,8 @@
-[Settings]
-gtk-theme-name=Adwaita
-gtk-icon-theme-name=breeze-dark
-gtk-font-name=Adwaita Sans 11
-gtk-cursor-theme-name=Adwaita
+# Made by LXAppearance.
+gtk-theme-name="AdwaitaDark"
+gtk-icon-theme-name="breeze"
+gtk-font-name="Hack Nerd Font 12"
+gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=30
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
@@ -12,6 +12,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle=hintslight
-gtk-xft-rgba=rgb
-gtk-application-prefer-dark-theme=1
+gtk-xft-hintstyle="hintfull"
+gtk-xft-rgba="rgb"

@@ -1,0 +1,13 @@
+# Theme: https://github.com/catppuccin/mako/blob/main/themes/catppuccin-mocha/catppuccin-mocha-blue
+
+background-color=#1e1e2e
+width=250
+height=200
+text-color=#cdd6f4
+border-color=#89b4fa
+border-radius=10
+progress-color=over #313244
+default-timeout=4000
+
+[urgency=high]
+border-color=#fab387

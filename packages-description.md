@@ -1,6 +1,6 @@
 # Packages overview
 
-- Nerd fonts 
+- Nerd fonts
 - Window managers: [Hyprland](https://wiki.hypr.land/), i3
 - Web browsers: firefox, brave
 - Wolfi - app launcher, [hyprland file managers](https://wiki.hypr.land/Useful-Utilities/File-Managers/)
@@ -11,7 +11,7 @@
 - Notification systems: Swaync, dunst.. 
 - Terminal emulators: kitty (inbuilt - links, image viewer), ghostty (zero configuration required), warp (AI, requires subscription), ...
 - feh - image viewer
-- Ixappearance - theme selector
+- lxappearance, nwg-look, kvantum - theme selectors
 - flameshot - take screenshot 
 - Themes: rose-pine-gtk, catppuccin
 - picom - standalone compositor for Xorg

@@ -1,34 +1,29 @@
 {
     "layer": "top",
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,    
-    "spacing": 0,
+    "output": [
+        "DP-1",
+    ],
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
 
     // Load Modules
     "include": [
         "~/.config/waybar/modules.json"
     ],
-
-    // Modules Left
     "modules-left": [
         "custom/appmenuicon",
         "hyprland/workspaces",
     ],
-
-    // Modules Center
-    "modules-center": [
-        "hyprland/window",
-    ],
-
-    // Modules Right    
+    // "modules-center": [
+    //     "hyprland/window",
+    // ],
+    //"tray",
     "modules-right": [
         "pulseaudio",
         "bluetooth",
         "network",
-        "battery", 
-        "custom/exit",
+        "battery",
         "clock",
-        "tray",
     ]
 }

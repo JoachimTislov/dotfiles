@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-echo "$1 (y/...)"
-read res
+read -n 1 -p "$1 (y/n)" res
+echo
 
-if [[ "$res" == "y" || "$res" == "Y" ]]; then
-  exit 0 
+if [[ "$res" == [Yy] ]]; then
+  exit 0
 else 
+  echo "Cancelled"
   exit 1
 fi
 

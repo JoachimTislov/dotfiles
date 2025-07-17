@@ -26,20 +26,20 @@ packages=(
   hyprpaper
   hyprlock
   hypridle
-  ttf-firacode-nerd
   kitty
   waybar
   mako
   pipewire
   wireplumber
-  polkit-kde-agent
+  hyprpolkitagent
   rofi
   qt5-wayland
   qt6-wayland
   dolphin
   xdg-desktop-portal-hyprland
+  xdg-desktop-portal-gtk
   sddm
-  qt6-svg 
+  qt6-svg
   qt6-virtualkeyboard
   qt6-multimedia-ffmpeg
   uwsm
@@ -47,6 +47,10 @@ packages=(
   cliphist
   gtk4
   gtk3
+  ### fonts ###
+  ttf-firacode-nerd
+  ttf-font-awesome
+  noto-fonts-emoji
   ### art ###
   fastfetch
   genact
@@ -54,6 +58,7 @@ packages=(
   ### system monitor ###
   btop
   htop
+  mission-center
   ### misc ###
   stow
   less
@@ -63,8 +68,6 @@ packages=(
   lsb-release
   man-pages
   base-devel
-  grub
-  efibootmgr
   tmux
   firefox
   bitwarden
@@ -77,19 +80,36 @@ packages=(
   docker
   spotify-launcher
   bluez-utils
+  bluez
+  blueman
+  usbutils
 )
 
 user_packages=(
   waypaper
-  matrix-git
+  adwaita-dark
+  cmatrix-git
   wlogout
   hollywood
   asciiquarium-transparent-git
   resvg
+  nordzy-cursors
 )
 
 if lsblk -f | grep -e Windows -e ntfs > /dev/null; then
   packages+=(os-prober)
+fi
+
+if [ "$(hostnamectl chassis)" = "desktop"]; then
+  packages+=(
+    xorg-xrandr
+    xorg-xrdb
+    linux-firmware-realtek # for bluetooth
+  )
+else
+  packages+=(
+    power-profiles-daemon
+  ) 
 fi
 
 # Nvidia gpu configuration - https://wiki.hypr.land/Nvidia/
@@ -99,8 +119,4 @@ if lspci | grep -i nvidia > /dev/null; then
     nvidia
     egl-wayland
   )
-  # Following isn't done for you ...
-  echo "options nvidia_drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
-  echo "[spotify]
-extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]" | sudo tee ~/.config/spotify-launcher.conf
 fi
