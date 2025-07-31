@@ -35,7 +35,9 @@ packages=(
   rofi
   qt5-wayland
   qt6-wayland
+  qt6ct
   dolphin
+  ark
   xdg-desktop-portal-hyprland
   xdg-desktop-portal-gtk
   sddm
@@ -83,6 +85,8 @@ packages=(
   bluez
   blueman
   usbutils
+  speedtest-cli
+  ripgrep
 )
 
 user_packages=(
@@ -96,7 +100,7 @@ user_packages=(
   nordzy-cursors
 )
 
-if lsblk -f | grep -e Windows -e ntfs > /dev/null; then
+if lsblk -f | grep -e Windows -e ntfs >/dev/null; then
   packages+=(os-prober)
 fi
 
@@ -109,13 +113,14 @@ if [ "$(hostnamectl chassis)" = "desktop"]; then
 else
   packages+=(
     power-profiles-daemon
-  ) 
+  )
 fi
 
 # Nvidia gpu configuration - https://wiki.hypr.land/Nvidia/
-if lspci | grep -i nvidia > /dev/null; then
+if lspci | grep -i nvidia >/dev/null; then
   packages+=(
-    nvidia-utils 
+    nvidia-utils
+    nvidia-settings
     nvidia
     egl-wayland
   )

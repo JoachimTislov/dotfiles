@@ -1,9 +1,17 @@
+node_modules
 go
 .git
 .cargo
+.cache
 .oh-my-zsh
 .local
 .npm
 .mozilla
 .config/Bitwardan
+.config/discord
+.config/obsidian
+.config/cava/shaders
+Cache
+Code Cache
+
 

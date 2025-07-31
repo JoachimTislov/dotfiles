@@ -27,6 +27,8 @@ alias ipv6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
 
 alias stop="systemctl stop"
 alias start="systemctl start"
+alias enable="systemctl enable"
+alias disable="systemctl disable"
 alias restart="systemctl restart"
 alias status="systemctl status"
 

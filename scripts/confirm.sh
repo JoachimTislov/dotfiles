@@ -5,15 +5,7 @@ echo
 
 if [[ "$res" == [Yy] ]]; then
   exit 0
-else 
+else
   echo "Cancelled"
   exit 1
 fi
-
-# Usage
-# if ./confirm.sh $arg > /dev/null; then
-#   **logic**
-# else
-#   **logic**
-# fi
-

@@ -7,19 +7,19 @@
 
 /* Hide the main bar */
 window#waybar {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .modules-left, .modules-right {
   background-color: shade(@base, 1.2);
-  border: 3px solid alpha(@blue, 0.8);
+  border: 2px solid alpha(@blue, 0.8);
   border-radius: 2px;
   padding-left: 10px;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 #workspaces button {
-  margin: 4px;
+  margin: 3px 4px 3px 4px;
   transition: all 0.3s ease-in-out;
 }
 

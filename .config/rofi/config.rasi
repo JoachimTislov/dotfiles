@@ -175,3 +175,4 @@ textbox-prompt-colon {
     str:        ":";
     text-color: inherit;
 }
+

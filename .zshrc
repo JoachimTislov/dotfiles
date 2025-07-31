@@ -27,8 +27,6 @@ function ff() {
   fastfetch
 }
 
-ff # responsive fastfetch
-
 # Activate vi
 bindkey -v
 export KEYTIMEOUT=1
@@ -42,26 +40,30 @@ bindkey -M menuselect 'l' vi-forward-char
 
 eval "$(thefuck --alias)"
 
-# Wrapper for yazi to change directory on exit 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# Wrapper for yazi to change directory on exit
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
 }
 
 function cdls() {
-  chdir $@
-  ls --group-directories-first
+  if chdir $@; then
+    ls --group-directories-first
+  fi
 }
 
 # Search & enter with editor
 se() {
   local dir="${1:-.}"
   local file=$(find "$dir" -type f | fzf)
-  if [ -n "$file" ]; then 
-    $EDITOR "$file";
+  if [ -n "$file" ]; then
+    $EDITOR "$file"
     [ "$(dirname $file)" != $(pwd) ] && cd $(dirname "$file")
   fi
 }
@@ -82,7 +84,7 @@ pkglist() {
       print
       print ""
     }
-  ' | less
+    ' | less
 }
 
 ### Maintaince ###
@@ -93,8 +95,8 @@ function clean() {
   msg() {
     echo "There are $1 orphaned packages"
   }
-  local orphans=$(pacman -Qdtq);
-  if [ -z "$orphans" ]; then
+  local orphans=$(pacman -Qdtq)
+  if [ -z $orphans ]; then
     msg zero
   else
     msg $(echo $orphans | wc -w)
@@ -106,21 +108,24 @@ function clean() {
   cache="$HOME/.cache"
   trash="$HOME/.local/share/Trash"
   garbage=(
-    $cache
-    $trash
+    "$cache"
+    "$trash"
   )
   echo -e "$(vol $cache)\n$(vol $trash)"
-  if ~/dotfiles/scripts/confirm.sh "Do you want to cleanup?"; then 
-    for x in garbage; do
-      rm -rf "$x"
-      mkdir "$x"
+  if ~/dotfiles/scripts/confirm.sh "Do you want to cleanup?"; then
+    for d in "${garbage[@]}"; do
+      if [ -d "$d" ]; then
+        rm -rf "$d"
+        mkdir "$d"
+      fi
     done
-    [ -n "$orphans" ] && sudo pacman -Rscu --noconfirm $orphans
+    if [ "$orphans" -gt 0 ]; then
+      sudo pacman -Rscu --noconfirm $orphans
+    fi
     echo "Done."
   fi
 }
 
-function vol() { 
-  du -sh $@ 
+function vol() {
+  du -sh $@
 }
-

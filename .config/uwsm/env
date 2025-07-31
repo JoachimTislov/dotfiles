@@ -1,0 +1,16 @@
+# Nvidia
+env = GBM_BACKEND,nvidia-drm
+env = LIBVA_DRIVER_NAME,nvidia
+env = __GL_GSYNC_ALLOWED,1
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+
+# Electron apps
+env = ELECTRON_OZONE_PLATFORM_HINT,auto
+
+# Firefox
+env = MOZ_ENABLE_WAYLAND,1
+
+# Themes
+env = GTK_THEME,Nord
+env = XCURSOR_THEME,nordzy-cursors
+
