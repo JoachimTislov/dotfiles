@@ -15,6 +15,16 @@ echo "Changing default shell to zsh"
 sudo chsh -s $(which zsh) # root
 chsh -s $(which zsh)      # current user
 
+echo "Installing copilot CLI extension for the GitHub CLI"
+gh auth login
+gh extension install github/gh-copilot
+
+echo "Cloning tmux plugin manager"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "Linking tmux-sessionizer script to /usr/bin/stmux"
+sudo ln -s $HOME/dotfiles/scripts/tmux-sessionizer.sh /usr/bin/stmux
+
 echo "Configuring sddm"
 sudo git clone https://github.com/Keyitdev/sddm-astronaut-theme.git "$astro_theme"
 sudo cp -r "$astro_theme/Fonts/*" /usr/share/fonts/

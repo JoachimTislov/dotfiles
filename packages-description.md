@@ -4,15 +4,15 @@
 - [sddm - (desktop display manager)](https://wiki.archlinux.org/title/SDDM) [Hyprland (Wayland)](https://wiki.hypr.land), picom, [i3 (X11)](https://github.com/i3/i3)
 - Web browsers - [Firefox](https://firefox.com), [Brave](https://brave.com)
 - [Fuzzel](https://codeberg.org/dnkl/fuzzel), [mounch](https://github.com/chmouel/mounch) [wofi](https://github.com/SimplyCEO/wofi), [rofi](https://github.com/davatorium/rofi) - app launchers, [hyprland file managers](https://wiki.hypr.land/Useful-Utilities/File-Managers)
-- Shell: bash, zsh, fish 
+- Shell: bash, zsh, fish
 - yay - package manager (AUR)
 - Nvim and vim... (IDE and editor)
 - tmux - terminal multiplexer (consider [mynav](https://github.com/GianlucaP106/mynav))
-- Notification systems: Swaync, mako, dunst.. 
+- Notification systems: Swaync, mako, dunst..
 - Terminal emulators: kitty (inbuilt - links, image viewer), ghostty (zero configuration required), warp (AI, requires subscription), ...
 - feh - image viewer
 - lxappearance, nwg-look, kvantum - theme selectors
-- flameshot - take screenshot 
+- flameshot - take screenshot
 - Themes: rose-pine-gtk, [catppuccin](https://github.com/catppuccin)
 - File managers: dolphin, nautilus (official GNOME)
 - Terminal file manager: [yazi](https://github.com/sxyazi/yazi)

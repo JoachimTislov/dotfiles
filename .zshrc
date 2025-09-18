@@ -2,6 +2,9 @@
 # Not sure if this should be set globally ...
 setopt nullglob
 
+# Load sensitive env variables
+source $HOME/secrets.sh
+
 # Load modular configuration
 for f in $HOME/.config/zshrc/*; do
   [ -f $f ] && source $f
@@ -26,17 +29,6 @@ function ff() {
   kitty @ set-font-size "$fontsize"
   fastfetch
 }
-
-# Activate vi
-bindkey -v
-export KEYTIMEOUT=1
-
-# TODO: this ... related to *TODO* in kitty.conf
-# https://github.com/BrodieRobertson/dotfiles/blob/master/.zshrc
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
 
 eval "$(thefuck --alias)"
 
@@ -119,13 +111,16 @@ function clean() {
         mkdir "$d"
       fi
     done
-    if [ "$orphans" -gt 0 ]; then
-      sudo pacman -Rscu --noconfirm $orphans
+    if [ -n "$orphans" ]; then
+      echo -e "$orphans" | xargs sudo pacman -Rscu --noconfirm
     fi
-    echo "Done."
   fi
 }
 
 function vol() {
   du -sh $@
 }
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/joachim/.lmstudio/bin"
+# End of LM Studio CLI section

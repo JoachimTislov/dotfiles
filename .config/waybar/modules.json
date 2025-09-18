@@ -1,33 +1,28 @@
 {
-  // Workspaces
   "hyprland/workspaces": {
     "active-only": false,
     "all-outputs": true,
-    "persistent-workspaces": {
-            "*": 4
-    }
+    "format": "{id}",
+    "sort-by": "number"
   },
-
+  "cava": {
+    "cava_config": "~/.config/cava/config"
+  },
   "custom/keybindings": {
     "format": "",
     "on-click": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
   },
-
-  // Rofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
     "on-click": "rofi -show drun -replace",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
-
   "tray": {
     "icon-size": 21,
     "spacing": 10
   },
-
-  // Network
   "network": {
     "format": "{ifname}",
     "format-wifi": " ",
@@ -37,29 +32,28 @@
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
+    "max-length": 50
   },
-
-  // Battery
   "battery": {
     "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
+      "good": 70,
+      "warning": 50,
+      "critical": 30
     },
     "format": "{icon}",
     "format-charging": "",
     "format-plugged": "",
     "format-alt": "{icon}  {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
   },
-
-  // Pulseaudio
   "pulseaudio": {
     "format": "{icon}   {volume}%",
-    // optionally have {format_source} and 
     "format-bluetooth": "{volume}% {icon}",
     "format-bluetooth-muted": "  {icon}",
     "format-muted": "  {format_source}",
@@ -72,12 +66,14 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
     "on-click": "pavucontrol"
   },
-
-  // Bluetooth
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "",
@@ -86,7 +82,6 @@
     "on-click": "blueman-manager",
     "format-no-controller": ""
   },
-
   "clock": {
     "interval": 60,
     "format": "{:%d.%m %H:%M}",

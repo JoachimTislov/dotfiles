@@ -25,10 +25,17 @@ alias PublicIPv6="curl -6 ip.me"
 alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
 alias ipv6="ip addr show | grep 'inet6 ' | cut -d ' ' -f6 | sed -n '2p'"
 
+alias user-stop="systemctl --user stop"
+alias user-start="systemctl --user start"
+alias user-enable="systemctl --user enable --now"
+alias user-disable="systemctl --user disable --now"
+alias user-restart="systemctl --user restart"
+alias user-status="systemctl --user status"
+
 alias stop="systemctl stop"
 alias start="systemctl start"
-alias enable="systemctl enable"
-alias disable="systemctl disable"
+alias enable="systemctl enable --now"
+alias disable="systemctl disable --now"
 alias restart="systemctl restart"
 alias status="systemctl status"
 
@@ -43,9 +50,8 @@ alias act="genact -i 3 -s 2"
 # Github aliases
 alias gs="git status" # Overwrites Ghostscript
 alias ga="git add ."
-alias gr="git restore ."
-alias grs="git restore . --staged"
 alias gcm="git checkout main"
 alias gp="git push"
 alias gl="git log"
 
+alias job="java -cp ~/projects/java/cli-no-build-tool Main"

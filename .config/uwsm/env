@@ -1,16 +1,18 @@
 # Nvidia
-env = GBM_BACKEND,nvidia-drm
-env = LIBVA_DRIVER_NAME,nvidia
-env = __GL_GSYNC_ALLOWED,1
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+export GBM_BACKEND=nvidia-drm
+export LIBVA_DRIVER_NAME=nvidia
+export __GL_GSYNC_ALLOWED=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # Electron apps
-env = ELECTRON_OZONE_PLATFORM_HINT,auto
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# Qt apps and themes
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Firefox
-env = MOZ_ENABLE_WAYLAND,1
+export MOZ_ENABLE_WAYLAND=1
 
 # Themes
-env = GTK_THEME,Nord
-env = XCURSOR_THEME,nordzy-cursors
-
+export GTK_THEME=Nord
+export XCURSOR_THEME=nordzy-cursors

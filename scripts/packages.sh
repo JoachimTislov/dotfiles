@@ -21,6 +21,11 @@ packages=(
   vim
   npm
   go
+  lua51
+  lua51-filesystem
+  luarocks
+  tree-sitter-cli
+  python-pip
   ### hyprland ###
   hyprland
   hyprpaper
@@ -30,13 +35,18 @@ packages=(
   waybar
   mako
   pipewire
+  pipewire-pulse
   wireplumber
   hyprpolkitagent
   rofi
   qt5-wayland
   qt6-wayland
   qt6ct
+  qt5ct
+  breeze-icons
+  kvantum
   dolphin
+  resvg
   ark
   xdg-desktop-portal-hyprland
   xdg-desktop-portal-gtk
@@ -87,16 +97,26 @@ packages=(
   usbutils
   speedtest-cli
   ripgrep
+  grim
+  slurp
+  jdk-openjdk
+  postgresql
+  # gradle
+  maven
+  cmus
+  lynx
+  uv
+  typst
 )
 
 user_packages=(
   waypaper
+  postman-bin
   adwaita-dark
   cmatrix-git
   wlogout
   hollywood
   asciiquarium-transparent-git
-  resvg
   nordzy-cursors
 )
 
