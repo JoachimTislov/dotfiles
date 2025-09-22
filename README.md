@@ -60,7 +60,7 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 ## TODOs
 
 - setup [youtube tui](https://github.com/Siriusmart/youtube-tui)
-- Add more keybindings, session tokenizer (tmux), connect to bluetooth ...
+- Add more keybindings, connect to bluetooth ...
 - wall papers
 - Waybar modules
     - day to date
@@ -75,8 +75,6 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 - Remove yazi ?
 - Remove noice: "Fontconfig warning: using without calling FcInit()"
     - ? where
-- ncspot is broken ...
-    - Token is invalid, even though I just authenticated and generated a new token
 
 ## Archive of old TODOs - completed or not so relevant anymore
 
@@ -85,8 +83,3 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 - Waybar: figure out how to reverse the hyprland workspaces module
     - use property "sort-by" ...
     - https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#sort
-
-### Resolved
-
-- Fix issue of cursor being "block" in insert mode in kitty [see this](https://youtube.com/watch?v=hIJh-KlQ7io)
-- resolve uwsm env variables issues: Aug 16 13:17:42 uwsm_env-preloader[2383]: env: ‘GBM_BACKEND,nvidia-drm’: No such file or directory

@@ -21,8 +21,8 @@ packages=(
   vim
   npm
   go
-  lua51
-  lua51-filesystem
+  lua51            # TODO: Upgrade
+  lua51-filesystem # TODO: Upgrade
   luarocks
   tree-sitter-cli
   python-pip
@@ -107,6 +107,9 @@ packages=(
   lynx
   uv
   typst
+  php
+  php-sqlite
+  sqlitebrowser
 )
 
 user_packages=(
