@@ -9,6 +9,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 # Qt apps and themes
 export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_STYLE_OVERRIDE=Adwaita-Dark
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1

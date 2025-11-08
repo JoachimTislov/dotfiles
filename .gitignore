@@ -1,3 +1,4 @@
 \.config/gh
 **/__pycache__/
 userstate.cbor
+sqlitebrowser

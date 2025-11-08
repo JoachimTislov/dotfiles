@@ -19,7 +19,7 @@ packages=(
   gcc
   neovim
   vim
-  npm
+  pnpm
   go
   lua51            # TODO: Upgrade
   lua51-filesystem # TODO: Upgrade
@@ -101,8 +101,8 @@ packages=(
   slurp
   jdk-openjdk
   postgresql
-  # gradle
-  maven
+  gradle
+  # maven
   cmus
   lynx
   uv
@@ -110,12 +110,18 @@ packages=(
   php
   php-sqlite
   sqlitebrowser
+  lftp
+  wireshark-qt
+  yt-dlp # youtube-tui dependency
+  docker-compose
 )
 
 user_packages=(
   waypaper
   postman-bin
   adwaita-dark
+  adwaita-qt5-git
+  youtube-tui
   cmatrix-git
   wlogout
   hollywood

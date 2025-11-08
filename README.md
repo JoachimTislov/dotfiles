@@ -32,6 +32,7 @@ Use at your own risk!
 - wallpapers
     - [dharmx - walls](https://github.com/dharmx/walls)
     - [leroiduflow - Wallsync](https://github.com/leroiduflow/WallSync)
+    - [Wallhaven](https://wallhaven.cc/)
 - scripts
     - [BreadOnPenguins](https://github.com/BreadOnPenguins/scripts)
     - [suckless - dmenu](https://suckless.org/dmenu/scripts)
@@ -59,10 +60,11 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 
 ## TODOs
 
-- setup [youtube tui](https://github.com/Siriusmart/youtube-tui)
-- Add more keybindings, connect to bluetooth ...
-- wall papers
+- resolve: os-prober is adding a non-working boot entry for windows ...
+    - etc/grub.d/30_os-prober
+- wall papers, can always add more of them
 - Waybar modules
+    - volume is broken?
     - day to date
     - cpu temp
     - memory usage
@@ -76,7 +78,7 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 - Remove noice: "Fontconfig warning: using without calling FcInit()"
     - ? where
 
-## Archive of old TODOs - completed or not so relevant anymore
+## Archive of old TODOs - not so relevant anymore
 
 - Configure [app2](https://github.com/Vladimir-csp/app2unit) for uwsm or setup rest of the uwsm cmds
     - app2 has better performance than uwsm, but thats not needed for my usecase

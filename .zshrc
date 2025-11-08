@@ -124,3 +124,7 @@ function vol() {
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/joachim/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# Task Master aliases added on 10/10/2025
+alias tm='task-master'
+alias taskmaster='task-master'
