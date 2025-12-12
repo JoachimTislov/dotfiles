@@ -10,9 +10,11 @@ Choose either of the following commands to create symbolic links for configurati
 - $targetPath - Path where the symbolic link should be created.
 
 ```powershell
+# powershell
 New-Item -ItemType SymbolicLink -Path $targetPath -Target $sourcePath -Force
 ```
 
 ```cmd
+:: cmd
 mklink $targetPath $sourcePath
 ```
