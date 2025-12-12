@@ -4,10 +4,10 @@ This repository contains configuration files and scripts for setting up and cust
 
 ## Setting up symbolic links
 
-Choose either of the following commands to create symbolic links for configuration files: 
+Choose either of the following commands to create symbolic links for configuration files:
 
-${sourcePath} - Path to the original configuration file or directory.
-${targetPath} - Path where the symbolic link should be created.
+- $sourcePath - Path to the original configuration file or directory.
+- $targetPath - Path where the symbolic link should be created.
 
 ```powershell
 New-Item -ItemType SymbolicLink -Path $targetPath -Target $sourcePath -Force
