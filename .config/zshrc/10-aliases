@@ -4,6 +4,10 @@ alias c="clear"
 alias cd="cdls"
 alias ls="eza -a --icons=always --hyperlink"
 alias ll="eza -l --icons=always --hyperlink"
+alias conf="v $HOME/dotfiles"
+alias copilot="copilot --allow-tool 'shell(git:*)' --allow-tool 'shell(make:*)' --allow-tool 'shell(gh:*)'"
+alias p="pnpm"
+alias reload="source $HOME/.zshrc"
 
 # Use editor for every nvim misspell
 alias n="$EDITOR ."
@@ -53,5 +57,9 @@ alias ga="git add ."
 alias gcm="git checkout main"
 alias gp="git push"
 alias gl="git log"
+alias gsync="git fetch;git pull"
 
-alias job="java -cp ~/projects/java/cli-no-build-tool Main"
+# Task Master aliases added on 10/10/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+

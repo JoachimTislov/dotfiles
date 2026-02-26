@@ -1,0 +1,65 @@
+function help() {
+  cat <<'EOF'
+╭──────────────────────────────────────────────────────────╮
+│                    Custom Commands                       │
+╰──────────────────────────────────────────────────────────╯
+
+  NAVIGATION & FILES
+    cd <dir>          Change directory and list contents
+    y [args]          Yazi file manager (cd on exit)
+    se [dir]          Fuzzy find & open file in $EDITOR
+    ls                eza with icons
+    ll                eza long listing with icons
+
+  EDITORS
+    v/vi/vim/nv/nvi   Open $EDITOR
+    n                 Open $EDITOR in current directory
+    conf              Open dotfiles in $EDITOR
+
+  GIT
+    gs                git status
+    ga                git add .
+    gp                git push
+    gl                git log
+    gcm               git checkout main
+    gsync             git fetch && pull
+    sb                Fuzzy switch git branch
+    gcommit           AI-generated commit message (staged)
+
+  PACKAGES & SYSTEM
+    pkg <name>        Show package info (pacman)
+    pkglist           List all packages with descriptions
+    clean             Remove orphans, cache & trash
+    vol <path>        Show directory size
+    update-grub       Regenerate GRUB config
+    error             Show boot errors (journalctl)
+
+  NETWORK
+    PublicIPv4        Show public IPv4
+    PublicIPv6        Show public IPv6
+    ipv4              Show local IPv4
+    ipv6              Show local IPv6
+
+  SYSTEMD
+    start/stop/restart/enable/disable/status <unit>
+    user-start/stop/restart/enable/disable/status <unit>
+
+  DEV
+    p                 pnpm
+    copilot           GitHub Copilot (restricted tools)
+    tm/taskmaster     task-master
+
+  FUN
+    ff                Fastfetch (auto font-size)
+    sea               asciiquarium
+    spot              ncspot
+    bonsai            cbonsai
+    matrix            cmatrix
+    act               genact
+
+  OTHER
+    c                 clear
+    fuck              thefuck (auto-correct last cmd)
+
+EOF
+}

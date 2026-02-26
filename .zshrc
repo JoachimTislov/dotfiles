@@ -60,6 +60,26 @@ se() {
   fi
 }
 
+# Git branch switcher
+# sb - select/switch branch
+sb() {
+  git branch | sed 's/^[* ] //' | fzf | xargs git checkout
+}
+
+# Generate commit message with Gemini
+# This is pretty useless
+function gcommit() {
+  diff=$(git diff --staged)
+
+  if [ -z "$diff" ]; then
+    echo "No staged changes to commit."
+    return 1
+  fi
+  echo "Generating commit message..."
+  msg=$(echo "$diff" | gemini "Write a concise Conventional Commit message for this diff. Output ONLY the message.")
+  git commit -m "$msg"
+}
+
 pkg() {
   if local info=$(pacman -Qi $@) && [ -n "$info" ]; then
     echo "$info" | less
@@ -121,10 +141,3 @@ function vol() {
   du -sh $@
 }
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/joachim/.lmstudio/bin"
-# End of LM Studio CLI section
-
-# Task Master aliases added on 10/10/2025
-alias tm='task-master'
-alias taskmaster='task-master'

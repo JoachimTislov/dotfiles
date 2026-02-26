@@ -60,6 +60,17 @@ List of resources I found helpful for understanding and configuring [Arch linux]
 
 ## TODOs
 
+### Broken stuff... after update (configs)
+
+- Waybar https://github.com/anufrievroman/waypaper
+- Yazi
+- Hyprpaper (bakcgorund image not being set) https://github.com/hyprwm/hyprpaper
+- Dolpin black text and grey background
+
+probably more ...
+
+### gerenal...
+
 - resolve: os-prober is adding a non-working boot entry for windows ...
     - etc/grub.d/30_os-prober
 - wall papers, can always add more of them
