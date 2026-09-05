@@ -2,10 +2,8 @@ eval "$(thefuck --alias)"
 
 alias c="clear"
 alias cd="cdls"
-alias ls="eza -a --icons=always --hyperlink"
-alias ll="eza -l --icons=always --hyperlink"
+alias ll="eza -l --icons=always --hyperlink always"
 alias conf="v $HOME/dotfiles"
-alias copilot="copilot --allow-tool 'shell(git:*)' --allow-tool 'shell(make:*)' --allow-tool 'shell(gh:*)'"
 alias p="pnpm"
 alias reload="source $HOME/.zshrc"
 
@@ -53,7 +51,7 @@ alias act="genact -i 3 -s 2"
 
 # Github aliases
 alias gs="git status" # Overwrites Ghostscript
-alias ga="git add ."
+alias ga="git add -A"
 alias gcm="git checkout main"
 alias gp="git push"
 alias gl="git log"
@@ -62,4 +60,3 @@ alias gsync="git fetch;git pull"
 # Task Master aliases added on 10/10/2025
 alias tm='task-master'
 alias taskmaster='task-master'
-
