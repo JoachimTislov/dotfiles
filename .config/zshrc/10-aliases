@@ -2,6 +2,7 @@ eval "$(thefuck --alias)"
 
 alias c="clear"
 alias cd="cdls"
+alias ls="eza -la"
 alias ll="eza -l --icons=always --hyperlink always"
 alias conf="v $HOME/dotfiles"
 alias p="pnpm"

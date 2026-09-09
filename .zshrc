@@ -172,13 +172,5 @@ function pilot() {
 	copilot ${tools[@]/#/--allow-tool } ${deny[@]/#/--deny-tool } $@
 }
 
-# pnpm
-export PNPM_HOME="/home/joachim/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME/bin:"*) ;;
-*) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
-
 # Added by Antigravity CLI installer
 export PATH="/home/joachim/.local/bin:$PATH"
