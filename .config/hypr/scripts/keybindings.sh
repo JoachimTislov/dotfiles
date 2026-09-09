@@ -1,21 +1,16 @@
 #!/bin/bash
 
-keybinds=$(awk -F'[=#]' '
-    $1 ~ /^bind/ {
-        # Replace the string "$mainMod" with "SUPER" (for the super key)
-        gsub(/\$mainMod/, "SUPER", $0)
+keybinds=$(hyprctl binds -j | jq -r '
+    .[] |
+    .modmask as $mask |
+    ([
+        if ($mask / 64 | floor) % 2 == 1 then "SUPER" else empty end,
+        if ($mask / 4 | floor) % 2 == 1 then "CTRL" else empty end,
+        if ($mask / 8 | floor) % 2 == 1 then "ALT" else empty end,
+        if $mask % 2 == 1 then "SHIFT" else empty end,
+        if .key != "" then .key else "code:\(.keycode)" end
+    ] | join(" + ")) + "\r" +
+    (if (.description // "") != "" then .description else .dispatcher + " " + .arg end)
+')
 
-        # Remove "bind" and extra spaces, if any, at the beginning of the line
-        gsub(/^bind[[:space:]]*=+[[:space:]]*/, "", $0)
-
-        # Split the keybinding part (e.g., "Mod1,Return") using a comma
-        split($1, kbarr, ",")
-
-        # Format the keybinding and associated command and prepare for output:
-        # Concatenate the two keybinding keys (e.g., "Mod1" + "Return") and append the command
-        print kbarr[1] "  + " kbarr[2] "\r" $2
-    }
-  ' ~/.config/hypr/conf/keybindings.conf)
-
-rofi -dmenu -i -markup -l 6 -eh 2 -p "Keybinds" <<< "$keybinds"
-
+rofi -dmenu -i -l 6 -eh 2 -p "Keybinds" <<< "$keybinds"

@@ -1,0 +1,6 @@
+hl.window_rule({ match = { class = "blueman-manager" }, float = true })
+hl.window_rule({ match = { class = "org.kde.dolphin" }, float = true, size = "<50% <50%" })
+hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol" }, float = true, size = "50% 50%" })
+hl.window_rule({ match = { class = "firefox" }, no_blur = true })
+hl.window_rule({ match = { class = "mpv" }, workspace = "2" })
+hl.window_rule({ match = { class = "(jetbrains-.*)" }, no_initial_focus = true })

@@ -1,0 +1,17 @@
+hl.monitor({ output = "DP-3", mode = "2560x1440@60", position = "0x0", scale = 1 })
+hl.monitor({ output = "DP-1", mode = "2560x1440@144", position = "auto", scale = 1 })
+
+require("conf.autostart")
+require("conf.keyboard")
+require("conf.window")
+require("conf.decoration")
+require("conf.layout")
+require("conf.misc")
+require("conf.keybindings")
+require("conf.windowrules")
+require("conf.animation")
+require("conf.workspace")
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+end)
