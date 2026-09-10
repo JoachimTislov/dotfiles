@@ -1,16 +1,16 @@
-/* Palette adapted from Vague and Catppuccin Macchiato. */
-@define-color base #141415;
-@define-color mantle #1c1c24;
-@define-color text #cdcdcd;
-@define-color blue #b7bdf8;
+/* Rose Pine palette; retain green workspace hover as requested. */
+@define-color base #191724;
+@define-color mantle #1f1d2e;
+@define-color text #e0def4;
+@define-color blue #009fff;
 @define-color green #a6da95;
-@define-color red #ed8796;
-@define-color yellow #eed49f;
-@define-color peach #e8b589;
-@define-color sapphire #8aadf4;
-@define-color maroon #c48282;
-@define-color backgroundlight #252530;
-@define-color iconcolor #b7bdf8;
+@define-color red #eb6f92;
+@define-color yellow #f6c177;
+@define-color peach #ebbcba;
+@define-color sapphire #009fff;
+@define-color maroon #eb6f92;
+@define-color backgroundlight #26233a;
+@define-color iconcolor #c4a7e7;
 
 /* Hide the main bar */
 window#waybar {
@@ -39,12 +39,19 @@ window#waybar {
   background: transparent;
 }
 
-#workspaces button:hover {
-  color: @green;
+#workspaces button label {
+  color: inherit;
 }
 
 #workspaces button.active {
-  color: @blue;
+  color: @sapphire;
+}
+
+#workspaces button:hover,
+#workspaces button.active:hover {
+  color: @green;
+  background: transparent;
+  box-shadow: none;
 }
 
 tooltip {

@@ -1,104 +1,20 @@
-/* Rose Pine surfaces for GTK utilities such as Blueman and Pavucontrol. */
-@define-color rose_base #191724;
-@define-color rose_surface #1f1d2e;
-@define-color rose_overlay #26233a;
-@define-color rose_muted #6e6a86;
-@define-color rose_subtle #908caa;
-@define-color rose_text #e0def4;
-@define-color rose_love #eb6f92;
-@define-color rose_gold #f6c177;
-@define-color rose_rose #ebbcba;
-@define-color rose_pine #31748f;
-@define-color rose_foam #9ccfd8;
-@define-color rose_iris #c4a7e7;
+/* Full Rosé Pine GTK theme; installed by hypr/scripts/install-rose-pine.py. */
+@import url("../../.local/share/themes/Rosepine-Dark/gtk-3.0/gtk.css");
 
-window,
-dialog,
-popover,
-menu,
-tooltip {
-  background-color: @rose_base;
-  color: @rose_text;
-}
-
-headerbar,
-toolbar,
-actionbar,
-statusbar {
-  background-color: @rose_surface;
-  color: @rose_text;
-  border: 0;
-  box-shadow: none;
-}
-
-button,
-combobox button,
-spinbutton,
-entry,
-searchbar,
-search-entry,
-treeview.view,
-notebook > header {
-  background-color: @rose_surface;
-  color: @rose_text;
-  border: 1px solid @rose_overlay;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-button:hover,
-button:checked,
-button:focus,
-entry:focus,
-spinbutton:focus,
-treeview.view:selected,
-notebook tab:checked {
-  background-color: @rose_overlay;
-  color: @rose_iris;
-  border-color: @rose_iris;
-}
-
-button:active {
-  background-color: @rose_pine;
-  color: @rose_text;
-}
-
-label,
-checkbutton,
-radiobutton,
-menuitem,
+/* Keep device/file lists dark, including selected and unfocused rows. */
 treeview.view {
-  color: @rose_text;
+  background-color: #191724;
+  color: #e0def4;
 }
-
-*:disabled {
-  color: @rose_muted;
+treeview.view:hover {
+  background-color: #1f1d2e;
+  color: #e0def4;
 }
-
-scale trough,
-progressbar trough,
-levelbar trough {
-  background-color: @rose_overlay;
-  border: 0;
-  border-radius: 0;
-}
-
-scale highlight,
-progressbar progress,
-levelbar block.filled {
-  background-color: @rose_foam;
-  border-radius: 0;
-}
-
-switch:checked,
-checkbutton check:checked,
-radiobutton radio:checked {
-  background-color: @rose_pine;
-  color: @rose_text;
-}
-
-selection,
-*:selected {
-  background-color: @rose_pine;
-  color: @rose_text;
+treeview.view:selected,
+treeview.view:selected:hover,
+treeview.view:selected:focus,
+treeview.view:selected:backdrop {
+  background-image: none;
+  background-color: #26233a;
+  color: #e0def4;
 }

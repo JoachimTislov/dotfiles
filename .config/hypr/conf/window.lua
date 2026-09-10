@@ -4,6 +4,6 @@ hl.config({
         gaps_in = 4,
         layout = "dwindle",
         resize_on_border = true,
-        col = { active_border = 0xee009fff },
+        col = { active_border = 0xee009fff, inactive_border = 0xff26233a },
     },
 })

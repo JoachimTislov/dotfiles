@@ -19,7 +19,7 @@ source, while the links below identify the exact upstream material consulted.
 
 The current Omarchy uses its own shell. Its shell and install scripts depend on
 Omarchy services, paths and packages, so they are not drop-in Waybar/Rofi
-replacements. No upstream installation scripts were executed.
+replacements. The original Omarchy installation scripts are not used. GTK theme installation is described in ROSE-PINE.md.
 
 ## Adaptation to this machine
 
@@ -30,7 +30,7 @@ Omarchy's shared-palette approach informed the setup.
 Hyprland's original window styling and Waybar corner radii are preserved.
 
 - Rofi: `../conf/launcher.rasi`; Super+Shift+Return and Super+Ctrl+Return.
-- Dolphin: `generated/VagueMacchiato.colors`, Qt6 palette, Adwaita 12 and
+- Dolphin: `../../../.local/share/color-schemes/VagueMacchiato.colors`, the Qt6 palette in `../../qt6ct/colors/RosePine.conf`, Adwaita 12 and
   installed Breeze Dark icons. Fusion lets the palette control Qt widgets;
   changing qt6ct also affects other applications using that platform theme.
 - Waybar: existing layout and radii with coordinated palette colors.
