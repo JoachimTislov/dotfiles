@@ -133,7 +133,7 @@ if lsblk -f | grep -e Windows -e ntfs >/dev/null; then
   packages+=(os-prober)
 fi
 
-if [ "$(hostnamectl chassis)" = "desktop"]; then
+if [ "$(hostnamectl chassis)" = "desktop" ]; then
   packages+=(
     xorg-xrandr
     xorg-xrdb

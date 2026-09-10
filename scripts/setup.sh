@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -Eeuo pipefail
 
 dot=~/dotfiles
 conf="$dot/.config"
@@ -9,33 +9,41 @@ cd "$dot"
 
 source scripts/packages.sh
 
-sudo pacman -Syu --noconfirm --needed ${packages[@]}
+sudo pacman -Syu --noconfirm --needed "${packages[@]}"
 
 echo "Changing default shell to zsh"
-sudo chsh -s $(which zsh) # root
-chsh -s $(which zsh)      # current user
+zsh_path=$(command -v zsh)
+chsh -s "$zsh_path"      # current user
 
 echo "Installing copilot CLI extension for the GitHub CLI"
-gh auth login
-gh extension install github/gh-copilot
+if ! gh auth status >/dev/null 2>&1; then
+  gh auth login
+fi
+if ! gh extension list | grep -q 'gh-copilot'; then
+  gh extension install github/gh-copilot
+fi
 
 echo "Cloning tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
 
 echo "Linking tmux-sessionizer script to /usr/bin/stmux"
-sudo ln -s $HOME/dotfiles/scripts/tmux-sessionizer.sh /usr/bin/stmux
+sudo ln -sfn "$HOME/dotfiles/scripts/tmux-sessionizer.sh" /usr/bin/stmux
 
 echo "Configuring sddm"
-sudo git clone https://github.com/Keyitdev/sddm-astronaut-theme.git "$astro_theme"
-sudo cp -r "$astro_theme/Fonts/*" /usr/share/fonts/
-sudo ln -s "$dot/sddm/sddm.conf" -t /etc
+if [[ ! -d "$astro_theme" ]]; then
+  sudo git clone https://github.com/Keyitdev/sddm-astronaut-theme.git "$astro_theme"
+fi
+sudo cp -r "$astro_theme/Fonts/"* /usr/share/fonts/
+sudo ln -sfn "$dot/sddm/sddm.conf" /etc/sddm.conf
 sudo sed -i 's|ConfigFile=Themes/.*|ConfigFile=Themes/cyberpunk.conf|' "$astro_theme/metadata.desktop"
 
 # Adding Windows OS as an boot entry
 if lsblk -f | grep -e Windows -e ntfs >/dev/null; then
   # Uncomment "os-prober disable = false"
   sudo sed -i 's/^#GRUB_DISABLE_OS_PROBER=/GRUB_DISABLE_OS_PROBER=/' /etc/default/grub
-  update-grub # alias, view ~/dotfiles/.config/zshrc/10-aliases line 20
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
 # Nvidia gpu configuration - https://wiki.hypr.land/Nvidia/
@@ -49,14 +57,19 @@ fi
 if [ "$(hostnamectl chassis)" = "desktop" ]; then
   # IMPORTANT: The identifiers for MY monitors on the x11 server is DP-0 and DP-4, while for wayland its DP-1 and DP-3
   # Place this cmd: "xrandr --listmonitors > $HOME/xrandr-log.txt" into $sddm/scripts/Xsetup to view what the identifiers are for the monitors on the x11 server, since it can differ from the ids on the wayland server.
-  echo "xrandr --output DP-4 --off" | sudo tee -a "$sddm/scripts/Xsetup"
+  if ! sudo grep -Fxq 'xrandr --output DP-4 --off' "$sddm/scripts/Xsetup"; then
+    echo "xrandr --output DP-4 --off" | sudo tee -a "$sddm/scripts/Xsetup" >/dev/null
+  fi
 else
-  sed -i -E '/monitor = DP|workspace/ s/^/# /; /prefered/ s/^# *//' "$conf/hypr/hyprland.conf"
-  sed -i 's/DP-1/eDP-1/' "$conf/hypr/hyprlock.conf" "$conf/waybar/config"
+  for file in "$conf/hypr/hyprlock.conf" "$conf/waybar/config"; do
+    [[ -f "$file" ]] && sed -i 's/DP-1/eDP-1/g' "$file"
+  done
 fi
 
 echo "Running stow"
-stow .
+# Adopt existing user files once, then maintain the checkout as the source of
+# truth on subsequent runs. This makes reruns safe after a partial installation.
+stow --adopt --restow .
 
 echo "Applying darkmatter theme to grub"
 cd themes/archlinux-grub
@@ -64,15 +77,22 @@ sudo python3 darkmatter-theme.py -i
 cd "$HOME"
 
 echo "Building cbonsai binary from source"
-git clone https://gitlab.com/jallbrit/cbonsai
+if [[ ! -d "$HOME/cbonsai" ]]; then
+  git clone https://gitlab.com/jallbrit/cbonsai "$HOME/cbonsai"
+fi
 cd cbonsai
 sudo make install PREFIX=/usr
-cd .. && rm -rf cbonsai
+cd "$dot"
 
 echo "Installing yay"
-git clone https://aur.archlinux.org/yay.git
-makepkg -D yay -si --noconfirm --needed
-rm -rf yay
+if ! command -v yay >/dev/null 2>&1; then
+  yay_dir=$(mktemp -d)
+  trap 'rm -rf "$yay_dir"' EXIT
+  git clone https://aur.archlinux.org/yay.git "$yay_dir/yay"
+  makepkg -D "$yay_dir/yay" -si --noconfirm --needed
+  rm -rf "$yay_dir"
+  trap - EXIT
+fi
 
 echo "Installing user packages"
-yay -S --noconfirm ${user_packages[@]}
+yay -S --noconfirm --needed "${user_packages[@]}"
