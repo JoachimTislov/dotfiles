@@ -11,6 +11,7 @@
 @define-color maroon #eb6f92;
 @define-color backgroundlight #26233a;
 @define-color iconcolor #c4a7e7;
+@define-color lavender #c6a0f6;
 
 /* Hide the main bar */
 window#waybar {
@@ -95,10 +96,16 @@ tooltip label {
 
 #pulseaudio,
 #network,
-#bluetooth {
+#bluetooth,
+#mpris,
+#temperature,
+#memory,
+#disk {
   font-size: 12px;
   padding: 0px 10px 0px 10px;
   margin: 10px 5px 10px 0px;
+  border-radius: 10px;
+  color: @mantle;
 }
 
 #pulseaudio {
@@ -109,8 +116,23 @@ tooltip label {
 
 #network {
   background-color: @sapphire;
-  color: @mantle;
   border-radius: 15px;
+}
+
+#mpris {
+  background-color: @lavender;
+}
+
+#temperature {
+  background-color: @yellow;
+}
+
+#memory {
+  background-color: @green;
+}
+
+#disk {
+  background-color: @peach;
 }
 
 #bluetooth {

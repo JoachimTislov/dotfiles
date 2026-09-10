@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-dot=~/dotfiles
+dot="$HOME/dotfiles"
 conf="$dot/.config"
 sddm=/usr/share/sddm
 astro_theme="$sddm/themes/sddm-astronaut-theme"
@@ -10,6 +10,10 @@ cd "$dot"
 source scripts/packages.sh
 
 sudo pacman -Syu --noconfirm --needed "${packages[@]}"
+
+if [[ $(findmnt -n -o FSTYPE /) == btrfs ]] && command -v snapper >/dev/null 2>&1; then
+  "$dot/scripts/btrfs-snapper-setup.sh"
+fi
 
 echo "Changing default shell to zsh"
 zsh_path=$(command -v zsh)
@@ -29,7 +33,7 @@ if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
 fi
 
 echo "Linking tmux-sessionizer script to /usr/bin/stmux"
-sudo ln -sfn "$HOME/dotfiles/scripts/tmux-sessionizer.sh" /usr/bin/stmux
+sudo ln -sfn "$dot/scripts/tmux-sessionizer.sh" /usr/bin/stmux
 
 echo "Configuring sddm"
 if [[ ! -d "$astro_theme" ]]; then
@@ -39,11 +43,9 @@ sudo cp -r "$astro_theme/Fonts/"* /usr/share/fonts/
 sudo ln -sfn "$dot/sddm/sddm.conf" /etc/sddm.conf
 sudo sed -i 's|ConfigFile=Themes/.*|ConfigFile=Themes/cyberpunk.conf|' "$astro_theme/metadata.desktop"
 
-# Adding Windows OS as an boot entry
-if lsblk -f | grep -e Windows -e ntfs >/dev/null; then
-  # Uncomment "os-prober disable = false"
-  sudo sed -i 's/^#GRUB_DISABLE_OS_PROBER=/GRUB_DISABLE_OS_PROBER=/' /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
+# Keep Windows available in the boot menu when an installation is detected.
+if command -v os-prober >/dev/null 2>&1; then
+  "$dot/scripts/configure-windows-boot.sh"
 fi
 
 # Nvidia gpu configuration - https://wiki.hypr.land/Nvidia/

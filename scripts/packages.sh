@@ -57,6 +57,11 @@ packages=(
   uwsm
   libnewt
   cliphist
+  playerctl
+  lm_sensors
+  wf-recorder
+  btrfs-progs
+  snapper
   gtk4
   gtk3
   ### fonts ###
@@ -118,6 +123,7 @@ packages=(
 
 user_packages=(
   waypaper
+  snap-pac
   postman-bin
   adwaita-dark
   adwaita-qt5-git
@@ -129,7 +135,7 @@ user_packages=(
   nordzy-cursors
 )
 
-if lsblk -f | grep -e Windows -e ntfs >/dev/null; then
+if lsblk -f | grep -Eiq 'Windows|ntfs'; then
   packages+=(os-prober)
 fi
 

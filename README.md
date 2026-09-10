@@ -1,4 +1,4 @@
-# JoachimTislov's dotfiles
+# JoachimTislov's Arch setup
 
 These are the files I use for my arch linux setup. I have mostly taken insperation from the [unixporn](https://reddit.com/r/unixporn/), [archlinux](https://reddit.com/r/archlinux/), [Hyprland](https://www.reddit.com/r/hyprland/) and [neovim](https://www.reddit.com/r/neovim/) Reddit communities.
 
@@ -57,42 +57,3 @@ List of resources I found helpful for understanding and configuring [Arch linux]
     - [Linux](https://reddit.com/r/linux/)
     - [Hyprland](https://reddit.com/r/hyprland/)
     - [Neovim](https://reddit.com/r/neovim/)
-
-## TODOs
-
-### Broken stuff... after update (configs)
-
-- Waybar https://github.com/anufrievroman/waypaper
-- Yazi
-- Hyprpaper (bakcgorund image not being set) https://github.com/hyprwm/hyprpaper
-- Dolpin black text and grey background
-
-probably more ...
-
-### gerenal...
-
-- resolve: os-prober is adding a non-working boot entry for windows ...
-    - etc/grub.d/30_os-prober
-- wall papers, can always add more of them
-- Waybar modules
-    - volume is broken?
-    - day to date
-    - cpu temp
-    - memory usage
-    - name of music playing and app
-    - disk space
-- Create a rofi launcher list with all the open apps, go to window on selection
-- Get familiar with wf-recorder pkg
-- Setup [btrfs](https://wiki.archlinux.org/title/Btrfs) - Look at Snapper (pacman hooks) or timeshift...
-- Write command for partionining the disk (swap) to enable `systemctl hibernate` (hibernation)
-- Remove yazi ?
-- Remove noice: "Fontconfig warning: using without calling FcInit()"
-    - ? where
-
-## Archive of old TODOs - not so relevant anymore
-
-- Configure [app2](https://github.com/Vladimir-csp/app2unit) for uwsm or setup rest of the uwsm cmds
-    - app2 has better performance than uwsm, but thats not needed for my usecase
-- Waybar: figure out how to reverse the hyprland workspaces module
-    - use property "sort-by" ...
-    - https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#sort

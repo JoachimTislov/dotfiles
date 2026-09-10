@@ -15,6 +15,12 @@
         "custom/appmenuicon",
         "hyprland/workspaces"
     ],
+    "modules-center": [
+        "mpris",
+        "temperature",
+        "memory",
+        "disk"
+    ],
     "modules-right": [
         // "tray",
         "pulseaudio",

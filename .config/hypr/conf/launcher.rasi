@@ -1,4 +1,4 @@
-/* Rose Pine palette, shared by the launcher and screenshot filename prompt. */
+/* Shared by launcher, clipboard history, package menu, window switcher and prompts. */
 configuration {
     font: "Adwaita 18";
     show-icons: true;
