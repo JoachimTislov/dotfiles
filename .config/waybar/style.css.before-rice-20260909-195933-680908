@@ -1,16 +1,4 @@
-/* Palette adapted from Vague and Catppuccin Macchiato. */
-@define-color base #141415;
-@define-color mantle #1c1c24;
-@define-color text #cdcdcd;
-@define-color blue #b7bdf8;
-@define-color green #a6da95;
-@define-color red #ed8796;
-@define-color yellow #eed49f;
-@define-color peach #e8b589;
-@define-color sapphire #8aadf4;
-@define-color maroon #c48282;
-@define-color backgroundlight #252530;
-@define-color iconcolor #b7bdf8;
+@import "catppuccin-mocha.css";
 
 /* Hide the main bar */
 window#waybar {

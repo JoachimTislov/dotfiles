@@ -1,0 +1,104 @@
+/* Rose Pine palette, shared by the launcher and screenshot filename prompt. */
+configuration {
+    font: "Adwaita 18";
+    show-icons: true;
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    matching: "fuzzy";
+    sort: true;
+    drun {
+        DBusActivatable: false;
+    }
+}
+
+* {
+    background-color: transparent;
+    text-color: #e0def4;
+    border-color: transparent;
+    spacing: 0;
+}
+
+window {
+    width: 640px;
+    location: center;
+    anchor: center;
+    background-color: #191724f5;
+    border: 0px;
+    border-radius: 0px;
+    padding: 20px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 16px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: #1f1d2e;
+    border-radius: 0px;
+    padding: 14px 16px;
+    spacing: 16px;
+}
+
+prompt {
+    text-color: #c4a7e7;
+}
+
+entry {
+    placeholder: "Search applications…";
+    placeholder-color: #908caa;
+    cursor: text;
+}
+
+listview {
+    lines: 7;
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 4px;
+}
+
+element {
+    padding: 12px 14px;
+    spacing: 14px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color: #e0def4;
+}
+
+element selected.normal, element selected.active {
+    background-color: #26233a;
+    text-color: #e0def4;
+    border: 0px;
+}
+
+element normal.active, element alternate.active {
+    text-color: #9ccfd8;
+}
+
+element normal.urgent, element alternate.urgent {
+    text-color: #eb6f92;
+}
+
+element selected.urgent {
+    background-color: #26233a;
+    text-color: #eb6f92;
+}
+
+element-icon {
+    size: 24px;
+    vertical-align: 0.5;
+    cursor: inherit;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    cursor: inherit;
+    highlight: bold underline #c4a7e7;
+}

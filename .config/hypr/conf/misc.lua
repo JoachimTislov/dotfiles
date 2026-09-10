@@ -5,6 +5,7 @@ hl.config({
         pass_mouse_when_bound = false,
     },
     misc = {
+        focus_on_activate = true,
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
         initial_workspace_tracking = 1,

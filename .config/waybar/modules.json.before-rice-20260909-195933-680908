@@ -15,7 +15,7 @@
   },
   "custom/appmenuicon": {
     "format": "",
-    "on-click": "~/.config/hypr/scripts/launcher.sh",
+    "on-click": "rofi -show drun -replace",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
