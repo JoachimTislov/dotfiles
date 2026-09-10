@@ -62,6 +62,7 @@ packages=(
   wf-recorder
   btrfs-progs
   snapper
+  snap-pac
   gtk4
   gtk3
   ### fonts ###
@@ -123,7 +124,6 @@ packages=(
 
 user_packages=(
   waypaper
-  snap-pac
   postman-bin
   adwaita-dark
   adwaita-qt5-git
